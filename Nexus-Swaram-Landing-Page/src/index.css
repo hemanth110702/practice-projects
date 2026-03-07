@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* App.css */
+
+.hexagon-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.hexagon-pattern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("path/to/hexagon-pattern.png"); /* Replace with your hexagon pattern image */
+  background-size: 150px 150px; /* Adjust size based on your pattern */
+  background-repeat: repeat;
+  filter: blur(8px); /* Apply blur only on background */
+  z-index: -1;
+  opacity: 0.5; /* Adjust for desired transparency */
+}
+
+
+/* App.css */
+.octagon {
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* For webkit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffedd5; /* Light orange background for the track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #fbbf24, #f59e0b); /* Nexus yellow-orange gradient */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f59e0b, #d97706); /* Darker shade on hover */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #fbbf24 #ffedd5; /* Thumb color, Track color */
+}
+
