@@ -1,0 +1,86 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(6, 4, 32) !important;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-text {
+  width: 350px;
+  height: 35px;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.input-date {
+  height: 35px;
+  padding: 5px;
+  margin: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: white !important;
+}
+
+.tasks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid white;
+  margin: 10px 0;
+  border-radius: 0.5rem;
+}
+
+.tasks-list {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: auto 100px;
+  align-items: center;
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.todo-task {
+  width: 350px;
+  margin-left: 10px;
+}
+
+.todo-date {
+  text-align: center;
+}
+
+.tasks-container {
+  background-color: rgba(17, 79, 187, 0);
+  padding: 10px;
+  border-radius: 0.5rem;
+}
+
+.delete-btn {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .input-container {
+    display: block;
+    width: 60%;
+    margin-inline: auto;
+  }
+  .input-text {
+    width: 200px;
+  }
+  .tasks-container {
+    width: 350px;
+    margin-inline: auto;
+  }
+  .todo-task {
+    width: fit-content;
+  }
+}
