@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Protest+Strike&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-yellow-100;
+  }
+}
+
+.workout-details {
+  background-color: lightcyan;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+.workout-details h4 {
+  color: red;
+  font-size: 1.5rem;
+}
+
+.workout-details h4,
+.workout-details h5 {
+  margin: 0;
+}
+
+.error {
+  border: 2px solid red;
+}
