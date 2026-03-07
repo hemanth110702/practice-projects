@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AOR Access</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+      }
+      textarea,
+      input,
+      select,
+      button {
+        margin-top: 10px;
+        display: block;
+        width: 100%;
+        padding: 8px;
+        font-size: 1rem;
+      }
+      textarea {
+        height: 150px;
+      }
+      #output {
+        margin-top: 20px;
+        white-space: nowrap; /* Prevent line breaks */
+        overflow-x: auto; /* Horizontal scroll */
+        overflow-y: auto; /* ✅ Vertical scroll too */
+        background: #f9f9f9;
+        padding: 10px;
+        border: 1px solid #ccc;
+        font-family: monospace;
+        min-height: 50px;
+        max-height: 200px; /* Set how much vertical space it can take */
+        resize: vertical; /* Allow user to resize if needed */
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 4px;
+      }
+      button:disabled {
+        background: #ccc;
+      }
+
+      #input-div {
+        display: grid;
+        grid-template-columns: repeat(2, 15rem);
+        column-gap: 2rem;
+        margin-bottom: 2rem;
+        row-gap: 1rem;
+      }
+
+      input,
+      select,
+      textarea {
+        margin: 0;
+      }
+
+      /* Make labels take up the full grid column width */
+      label {
+        grid-column: span 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>AOR Access</h2>
+
+    <div id="input-div">
+      <label
+        >Add/Revoke Access:
+        <select id="access">
+          <option selected value="add">Add</option>
+          <option value="revoke">Revoke</option>
+        </select>
+      </label>
+
+      <div></div>
+
+      <label>
+        Start Date:
+        <input type="date" id="startDatePicker" />
+      </label>
+
+      <label id="endDateLabel" style="display: none">
+        End Date:
+        <input type="date" id="endDatePicker" />
+      </label>
+
+      <label>Person Number: <input type="number" id="lifeNo" /></label>
+      <label>Assignment No: <input type="text" id="assignmentNo" /></label>
+
+      <label>
+        Select Hospital or School:
+        <select id="hosOrSch">
+          <option value="">-- Select --</option>
+          <option value="hospital">Hospital</option>
+          <option value="school">School</option>
+        </select>
+      </label>
+
+      <label>
+        Department Role:
+        <select id="department">
+          <option value="">-- Select --</option>
+          <option value="admin">Admin</option>
+          <option value="requestor">Requestor</option>
+          <option value="approver">Approver</option>
+        </select>
+      </label>
+    </div>
+
+    <label>Department Name(s) (one per line):</label>
+    <textarea
+      id="departmentName"
+      placeholder="Enter each department name on a new line"
+    ></textarea>
+
+    <button id="addBtn">Add</button>
+
+    <h3>Generated Lines:</h3>
+    <div id="output">
+      METADATA|AreasOfResponsibility|PersonNumber|AssignmentNumber|ResponsibilityType|ResponsibilityName|StartDate|Status|SourceSystemId|SourceSystemOwner|EndDate|OrganizationName|WorkContactsFlag|Usage
+    </div>
+
+    <button id="downloadBtn">Download <b>AreasOfResponsibility.dat</b></button>
+
+    <script>
+      const addBtn = document.getElementById("addBtn");
+      const output = document.getElementById("output");
+      const downloadBtn = document.getElementById("downloadBtn");
+      const departmentNameTextarea = document.getElementById("departmentName");
+
+      // NEW: Get elements for Add/Revoke functionality
+      const accessSelect = document.getElementById("access");
+      const endDateLabel = document.getElementById("endDateLabel");
+
+      let lines = [
+        "METADATA|AreasOfResponsibility|PersonNumber|AssignmentNumber|ResponsibilityType|ResponsibilityName|StartDate|Status|SourceSystemId|SourceSystemOwner|EndDate|OrganizationName|WorkContactsFlag|Usage",
+      ];
+
+      // NEW: Event listener to show/hide the End Date field
+      accessSelect.addEventListener("change", () => {
+        if (accessSelect.value === "revoke") {
+          endDateLabel.style.display = "block";
+          addBtn.textContent = "Revoke"; // Change button text
+        } else {
+          endDateLabel.style.display = "none";
+          addBtn.textContent = "Add"; // Change button text back
+        }
+      });
+
+      departmentNameTextarea.addEventListener("paste", (event) => {
+        event.preventDefault();
+        const pastedText = event.clipboardData.getData("text/plain");
+        const cleanedLines = pastedText
+          .split("\n")
+          .map((line) =>
+            line
+              .replace(/\(.*?\)/g, "")
+              .replace(/^[^a-zA-Z0-9]+/, "")
+              .trim()
+          )
+          .filter((line) => line.length > 0);
+        const finalCleanedText = cleanedLines.join("\n");
+        const start = event.target.selectionStart;
+        const end = event.target.selectionEnd;
+        const originalValue = event.target.value;
+        event.target.value =
+          originalValue.substring(0, start) +
+          finalCleanedText +
+          originalValue.substring(end);
+        event.target.selectionStart = event.target.selectionEnd =
+          start + finalCleanedText.length;
+      });
+
+      const validateAssignmentNo = (value) => /^[a-zA-Z0-9\-]+$/.test(value);
+
+      addBtn.addEventListener("click", () => {
+        addBtn.disabled = true;
+
+        // UPDATED: Get access mode (add or revoke)
+        const accessMode = accessSelect.value;
+        const startDateRaw = document
+          .getElementById("startDatePicker")
+          .value.trim();
+
+        if (!startDateRaw) {
+          alert("Please select a Start Date");
+          addBtn.disabled = false;
+          return;
+        }
+
+        const formattedStartDate = startDateRaw.replace(/-/g, "/");
+        let formattedEndDate = "4712/12/31"; // Default for 'add' mode
+
+        // UPDATED: Logic for Revoke mode
+        if (accessMode === "revoke") {
+          const endDateRaw = document
+            .getElementById("endDatePicker")
+            .value.trim();
+          if (!endDateRaw) {
+            alert("Please select an End Date to revoke access.");
+            addBtn.disabled = false;
+            return;
+          }
+          formattedEndDate = endDateRaw.replace(/-/g, "/");
+        }
+
+        setTimeout(() => {
+          addBtn.disabled = false;
+        }, 5000); // 5 second debounce
+
+        const lifeNo = document.getElementById("lifeNo").value.trim();
+        const assignmentNo = document
+          .getElementById("assignmentNo")
+          .value.trim();
+        const hosOrSch = document.getElementById("hosOrSch").value.trim();
+        const department = document.getElementById("department").value.trim();
+        const departmentName = document
+          .getElementById("departmentName")
+          .value.trim();
+
+        // Validations
+        if (!lifeNo || isNaN(lifeNo)) {
+          alert("Enter valid Life No (integer)");
+          return;
+        }
+
+        if (!assignmentNo || !validateAssignmentNo(assignmentNo)) {
+          alert("Assignment No must be alphanumeric (and can include hyphen)");
+          return;
+        }
+
+        if (!hosOrSch) {
+          alert("Please select Hospital or School");
+          return;
+        }
+
+        if (!department) {
+          alert("Please select a Department Role");
+          return;
+        }
+
+        if (!departmentName) {
+          alert("Please enter at least one Department Name");
+          return;
+        }
+
+        var requestedRole = "";
+        var requestedDeptRole = "";
+
+        if (department != "approver" && hosOrSch == "hospital") {
+          if (department == "admin") {
+            requestedRole = "MSHS_DEPT_ADMIN";
+            requestedDeptRole = "MSH Admin";
+          } else if (department == "requestor") {
+            requestedRole = "MSHS_DEPT_REQUESTER";
+            requestedDeptRole = "MSH Requester";
+          }
+        } else if (department != "approver" && hosOrSch == "school") {
+          if (department == "admin") {
+            requestedRole = "MSHS_SCHOOL_DEPT_ADMIN";
+            requestedDeptRole = "MSH School Admin";
+          } else if (department == "requestor") {
+            requestedRole = "MSHS_SCHOOL_DEPT_REQUESTER";
+            requestedDeptRole = "MSH School Requester";
+          }
+        } else if (department == "approver") {
+          requestedRole = "MSHS_DEPT_APPROVER";
+          requestedDeptRole = "MSH Approver";
+        }
+
+        const deptNames = departmentName
+          .split("\n")
+          .map((d) => d.trim())
+          .filter((d) => d.length > 0);
+
+        deptNames.forEach((dept) => {
+          // UPDATED: The generated line now uses the correct start and end dates
+          const line = `MERGE|AreasOfResponsibility|${lifeNo}|${assignmentNo}|${requestedRole}|${requestedDeptRole} - ${dept}|${formattedStartDate}|Active|||${formattedEndDate}|${dept}|N|ORA_PER_AOR_APPROVAL,ORA_PER_AOR_CHECKLIST`;
+          lines.push(line);
+        });
+        output.innerText = lines.join("\n");
+        localStorage.setItem("sqlLines", JSON.stringify(lines));
+        document.getElementById("departmentName").value = "";
+        console.log(lines);
+      });
+
+      downloadBtn.addEventListener("click", () => {
+        downloadBtn.disabled = false;
+
+        const blob = new Blob([output.innerText], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "AreasOfResponsibility.dat";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        setTimeout(() => {
+          addBtn.disabled = false;
+        }, 5000);
+
+        localStorage.removeItem("sqlLines");
+        lines = [
+          "METADATA|AreasOfResponsibility|PersonNumber|AssignmentNumber|ResponsibilityType|ResponsibilityName|StartDate|Status|SourceSystemId|SourceSystemOwner|EndDate|OrganizationName|WorkContactsFlag|Usage",
+        ];
+        output.innerText = lines.join("\n");
+
+        resetFormFields();
+      });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const savedLines = localStorage.getItem("sqlLines");
+        if (savedLines) {
+          lines = JSON.parse(savedLines);
+          output.innerText = lines.join("\n");
+        }
+
+        const startDatePicker = document.getElementById("startDatePicker");
+        const endDatePicker = document.getElementById("endDatePicker");
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
+        const todayString = `${yyyy}-${mm}-${dd}`;
+
+        startDatePicker.value = todayString;
+        endDatePicker.value = todayString; // Set default for end date too
+      });
+
+      function resetFormFields() {
+        document.getElementById("lifeNo").value = "";
+        document.getElementById("assignmentNo").value = "";
+        document.getElementById("hosOrSch").selectedIndex = 0;
+        document.getElementById("department").selectedIndex = 0;
+        document.getElementById("departmentName").value = "";
+
+        // NEW: Reset the access dropdown and hide end date
+        accessSelect.selectedIndex = 0;
+        endDateLabel.style.display = "none";
+        addBtn.textContent = "Add";
+
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
+        const todayString = `${yyyy}-${mm}-${dd}`;
+
+        document.getElementById("startDatePicker").value = todayString;
+        document.getElementById("endDatePicker").value = todayString; // Also reset end date
+      }
+    </script>
+  </body>
+</html>
