@@ -18,6 +18,9 @@
 
 Workout-Memo is a MERN stack project enabling users to create personalized workout routines by specifying details such as workout name, load, and reps. Users can log in to access and manage their workout lists, fostering a tailored fitness experience.
 
+- [Live Site](https://workout-memo-ui.vercel.app/)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/Workout-Memo)
+
 ## Technology Stack
 
 - MongoDB

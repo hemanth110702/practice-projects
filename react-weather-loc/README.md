@@ -18,6 +18,9 @@
 
 Welcome to the React Weather App! This application provides real-time weather information using data from the OpenWeather API. Users can search for specific locations or allow the app to access their current location.
 
+- [Live Site](https://react-weather-loc.vercel.app/)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/react-weather-loc)
+
 ## Technology Stack
 
 - React
@@ -103,6 +106,6 @@ Welcome to the React Weather App! This application provides real-time weather in
 </table>
 
 ## Link
-[🚀 Live Page](https://react-weather-loc.netlify.app/)
+[🚀 Live Page](https://react-weather-loc.vercel.app/)
 
 <p align="right"><a href="#top">⬆️ Back to Top</a></p>

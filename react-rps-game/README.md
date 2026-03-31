@@ -18,6 +18,9 @@
 
 Welcome to the React Rock, Paper, Scissors Game! This project allows users to play the classic game against the computer, with scores tracked using local storage.
 
+- [Live Site](https://react-rps-game-otvq461b9-hemanth110702s-projects.vercel.app/)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/react-rps-game)
+
 ## Technology Stack
 
 - React
@@ -82,6 +85,6 @@ Welcome to the React Rock, Paper, Scissors Game! This project allows users to pl
 </table>
 
 ## Link
-[🚀 Live Page](https://r-p-s-react.netlify.app/)
+[🚀 Live Page](https://react-rps-game-otvq461b9-hemanth110702s-projects.vercel.app/)
 
 <p align="right"><a href="#top">⬆️ Back to Top</a></p>

@@ -18,6 +18,9 @@
 
 Welcome to GameStash, a MERN-based website that lets users explore and save their favorite games. The website uses the RAWG Video Games Database API to provide a vast collection of games for users to discover.
 
+- [Live Site](https://gamestash-frontend.vercel.app/)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/GameStash)
+
 ## Technology Stack
 
 - MongoDB

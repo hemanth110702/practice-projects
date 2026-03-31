@@ -18,6 +18,9 @@
 
 Welcome to Plan..Action..Repeat, a client-side web application designed to replace a manual notepad-based system for tracking daily service tickets. This tool provides a structured, visual workflow to prepare for daily review meetings, document action plans, and track progress on Incidents, Tasks, and Service Requests. All data is saved in your browser's local storage, requiring no backend.
 
+- [Live Site](https://plan-action-repeat.vercel.app/)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/Plan..Action..Repeat)
+
 ## Technology Stack
 
 - **Framework:** React (with Vite)

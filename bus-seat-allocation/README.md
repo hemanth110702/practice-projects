@@ -17,6 +17,9 @@
 ## Overview
 Experience the convenience of a thoughtfully designed website that prioritizes ease of use. Our commitment is to make bus ticket booking a straightforward and enjoyable task, ensuring that you can focus on the excitement of your upcoming journey.
 
+- [Live Site](https://hemanth110702.github.io/practice-projects/bus-seat-allocation/index.html)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/bus-seat-allocation)
+
 ## Technology Stack
 
 - HTML 
@@ -109,6 +112,6 @@ Experience the convenience of a thoughtfully designed website that prioritizes e
 </table>
 
 ## Link
-[🚀 Live Page](https://hemanth110702.github.io/bus-seat-allocation/)
+[🚀 Live Page](https://hemanth110702.github.io/practice-projects/bus-seat-allocation/index.html)
 
 <p align="right"><a href="#top">⬆️ Back to Top</a></p>

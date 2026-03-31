@@ -18,6 +18,9 @@
 
 Welcome to the landing page of Nexus Swaram, this is a demo landing page introducing what Nexus Swaram is and what it does.
 
+- [Live Site](https://nexus-swaram-landing-page.vercel.app/)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/Nexus-Swaram-Landing-Page)
+
 ## Technology Stack
 
 - React
@@ -91,6 +94,6 @@ Welcome to the landing page of Nexus Swaram, this is a demo landing page introdu
 </table>
 
 ## Link
-[🚀 Live Page](https://nexus-swaram.netlify.app/)
+[🚀 Live Page](https://nexus-swaram-landing-page.vercel.app/)
 
 <p align="right"><a href="#top">⬆️ Back to Top</a></p>

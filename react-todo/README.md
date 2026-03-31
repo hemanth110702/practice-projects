@@ -18,6 +18,9 @@
 
 Welcome to the React Todo App! This project is a simple yet effective Todo application built with React, allowing users to manage their tasks efficiently.
 
+- [Live Site](https://react-todo-pp.vercel.app)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/react-todo)
+
 ## Technology Stack
 
 - React
@@ -69,7 +72,7 @@ Welcome to the React Todo App! This project is a simple yet effective Todo appli
 </table>
 
 ## Link
-[🚀 Live Page](https://todo-tasks-react.netlify.app/)
+[🚀 Live Page](https://react-todo-pp.vercel.app)
 
 
 <p align="right"><a href="#top">⬆️ Back to Top</a></p>

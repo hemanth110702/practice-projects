@@ -18,6 +18,9 @@
 
 This project involves creating a clone of YouTube using HTML and CSS, with a focus on utilizing grid and flex layouts to achieve a visually appealing and responsive design. The primary goal is to explore and showcase the power of these layout techniques while maintaining a minimalist design that captures the core features of YouTube's homepage.
 
+- [Live Site](https://hemanth110702.github.io/practice-projects/clone-youtube.com/index.html)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/clone-youtube.com)
+
 ## Technology Stack
 
 - HTML
@@ -82,6 +85,6 @@ This project involves creating a clone of YouTube using HTML and CSS, with a foc
 </table>
 
 ## Link
-[🚀 Live Page](https://hemanth110702.github.io/clone-youtube.com/)
+[🚀 Live Page](https://hemanth110702.github.io/practice-projects/clone-youtube.com/index.html)
 
 <p align="right"><a href="#top">⬆️ Back to Top</a></p>

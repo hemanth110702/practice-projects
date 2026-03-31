@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+#git-profile {
+  color: #38bdf8;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+/* Table */
+main {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+table {
+  width: 90%;
+  max-width: 900px;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #1e293b;
+}
+
+/* Header */
+th {
+  background: #020617;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+/* Rows */
+td {
+  padding: 14px;
+  border-top: 1px solid #334155;
+  font-size: 0.9rem;
+}
+
+/* Row Hover */
+tbody tr {
+  transition: 0.3s;
+}
+
+tbody tr:hover {
+  background: #334155;
+  transform: scale(1.01);
+}
+
+/* Links */
+a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Tech Tag Style */
+td:last-child {
+  font-style: italic;
+  color: #94a3b8;
+}

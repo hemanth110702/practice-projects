@@ -18,6 +18,9 @@
 
 Discover in-depth information about our institution, ranging from details on branches and faculty to insights into the management structure. Gain a comprehensive understanding of our commitment to academic excellence and explore valuable insights into past placements.
 
+- [Live Site](https://hemanth110702.github.io/practice-projects/institution-website/index.html)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/institution-website)
+
 ## Technology Stack
 
 - HTML
@@ -130,6 +133,6 @@ Discover in-depth information about our institution, ranging from details on bra
 </table>
 
 ## Link
-[🚀 Live Page](https://hemanth110702.github.io/institution-website/)
+[🚀 Live Page](https://hemanth110702.github.io/practice-projects/institution-website/index.html)
 
 <p align="right"><a href="#top">⬆️ Back to Top</a></p>

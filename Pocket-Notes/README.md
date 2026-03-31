@@ -18,6 +18,9 @@
 
 Pocket-Notes is a MERN project enabling users to securely store and access their notes from anywhere. With robust login/signup authentication, users can effortlessly create and manage simple notes, ensuring convenience and accessibility.
 
+- [Live Site](https://pocket-notes-ui.vercel.app/)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/Pocket-Notes)
+
 ## Technology Stack
 
 - MongoDB

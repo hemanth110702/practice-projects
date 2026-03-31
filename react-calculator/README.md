@@ -18,6 +18,9 @@
 
 Welcome to the React Calculator! This project is a versatile and user-friendly calculator built with React, providing essential arithmetic functionalities and a modern interface.
 
+- [Live Site](https://react-calculator-five-orpin.vercel.app/)
+- [Code](https://github.com/hemanth110702/practice-projects/tree/main/react-calculator)
+
 ## Technology Stack
 - React
 - HTML
@@ -66,6 +69,6 @@ Welcome to the React Calculator! This project is a versatile and user-friendly c
 </table>
 
 ## Link
-[🚀 Live Page](https://arthimetic-react-calc.netlify.app/)
+[🚀 Live Page](https://react-calculator-five-orpin.vercel.app/)
 
 <p align="right"><a href="#top">⬆️ Back to Top</a></p>
