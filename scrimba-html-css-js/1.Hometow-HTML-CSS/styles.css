@@ -12,10 +12,7 @@ body {
   margin: 0;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-img {
-  width: 100px;
+  background-image: linear-gradient(rgb(107, 201, 252), white);
 }
 
 .hero {
@@ -54,7 +51,7 @@ img {
   flex-direction: column;
   align-items: center;
   row-gap: 30px;
-  height: 600px;
+  height: 500px;
 }
 
 .activities h3 {
@@ -91,4 +88,49 @@ img {
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
+}
+
+.diff-activities img {
+  transition: 0.45s;
+}
+
+.diff-activities img:hover {
+  transform: scale(0.9);
+}
+
+.guide-section {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.guide {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 350px;
+  background-color: #A8DADC;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 6px ;
+}
+
+.guide img {
+  width: 150px;
+  border-radius: 10px;
+}
+
+.guide h3, h4 {
+  font-weight: 700px;
+  color: #1D3557;
+}
+
+.guide p {
+  color: #1D3557;
+  font-style: italic;
+}
+
+.guide img:hover{
+    background-color: red;
 }
