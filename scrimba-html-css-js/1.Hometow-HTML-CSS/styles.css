@@ -27,7 +27,7 @@ body {
 }
 
 .hero h1 {
-  background-color: #1D3557;
+  background-color: #1d3557;
   padding: 4px 20px;
   letter-spacing: 3px;
   border-radius: 10px;
@@ -38,8 +38,8 @@ body {
 }
 
 .hero h2 {
-  background-color: #457B9D;
-  font-size:24px;
+  background-color: #457b9d;
+  font-size: 24px;
   padding: 5px 40px 5px 70px;
   border-radius: 12px;
   margin: 0;
@@ -58,7 +58,7 @@ body {
   display: flex;
   align-items: center;
   font-size: 28px;
-  color: #1D3557;
+  color: #1d3557;
   margin-top: 80px;
 }
 
@@ -72,19 +72,19 @@ body {
   width: 23%;
 }
 
-.diff-activities img { 
+.diff-activities img {
   width: 60%;
   border-radius: 100%;
 }
 
 .activity-title {
-  color: #1D3557;
+  color: #1d3557;
   font-size: 20px;
   font-weight: 700;
 }
 
 .activity-detail {
-  color: #1D3557;
+  color: #1d3557;
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
@@ -110,10 +110,10 @@ body {
   display: flex;
   flex-direction: row-reverse;
   width: 350px;
-  background-color: #A8DADC;
+  background-color: #a8dadc;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0px 6px ;
+  box-shadow: 0px 6px;
 }
 
 .guide img {
@@ -121,16 +121,39 @@ body {
   border-radius: 10px;
 }
 
-.guide h3, h4 {
+.guide h3,
+h4 {
   font-weight: 700px;
-  color: #1D3557;
+  color: #1d3557;
 }
 
 .guide p {
-  color: #1D3557;
+  color: #1d3557;
   font-style: italic;
 }
 
-.guide img:hover{
-    background-color: red;
+.guide img:hover {
+  background-color: red;
+}
+
+@media (max-width: 750px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+  .hero h2 {
+    padding: 5px 10px; 
+    font-size: 18px;
+  }
+  .activities {
+    height: 100%;
+  }
+  .diff-activities {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 30px;
+  }
+  .diff-activities div{
+      width: 50%;
+  }
 }
