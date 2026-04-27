@@ -305,13 +305,13 @@ Each folder represents a **specific concept, mini-project, or practice implement
         <b>Hometown</b> 
     </td>
     <td>
-      <a href="./scrimba-html-css-js/1.Hometown-HTML-CSS/">
+      <a href="./scrimba-html-css-js/1.Hometown-HTML-CSS">
         <b>Codebase</b>
       </a>
     </td>
     <td>
-      <a href="https://hemanth110702.github.io/practice-projects/aor/index.html" target="_blank">
-        <b>AOR-live</b>
+      <a href="https://hemanth110702.github.io/practice-projects/scrimba-html-css-js/1.Hometown-HTML-CSS/index.html" target="_blank">
+        <b>Hometown-live</b>
       </a>
     </td>
   </tr>
