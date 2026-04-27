@@ -1,0 +1,159 @@
+/**
+Palette: https://scrimba.com/links/hometown-palette
+RED: #E63946
+LIGHT: #F1FAEE
+AQUA: #A8DADC
+LIGHT BLUE: #457B9D
+DARK BLUE: #1D3557
+
+*/
+
+body {
+  margin: 0;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(rgb(107, 201, 252), white);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("./images/torshov.jpg");
+  background-size: cover;
+  color: white;
+}
+
+.hero h1 {
+  background-color: #1d3557;
+  padding: 4px 20px;
+  letter-spacing: 3px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 40px;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.hero h2 {
+  background-color: #457b9d;
+  font-size: 24px;
+  padding: 5px 40px 5px 70px;
+  border-radius: 12px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.activities {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 30px;
+  height: 500px;
+}
+
+.activities h3 {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  color: #1d3557;
+  margin-top: 80px;
+}
+
+.diff-activities {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.diff-activities div {
+  width: 23%;
+}
+
+.diff-activities img {
+  width: 60%;
+  border-radius: 100%;
+}
+
+.activity-title {
+  color: #1d3557;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.activity-detail {
+  color: #1d3557;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+}
+
+.diff-activities img {
+  transition: 0.45s;
+}
+
+.diff-activities img:hover {
+  transform: scale(0.9);
+}
+
+.guide-section {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.guide {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 350px;
+  background-color: #a8dadc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 6px;
+}
+
+.guide img {
+  width: 150px;
+  border-radius: 10px;
+}
+
+.guide h3,
+h4 {
+  font-weight: 700px;
+  color: #1d3557;
+}
+
+.guide p {
+  color: #1d3557;
+  font-style: italic;
+}
+
+.guide img:hover {
+  background-color: red;
+}
+
+@media (max-width: 750px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+  .hero h2 {
+    padding: 5px 10px; 
+    font-size: 18px;
+  }
+  .activities {
+    height: 100%;
+  }
+  .diff-activities {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 30px;
+  }
+  .diff-activities div{
+      width: 50%;
+  }
+}
