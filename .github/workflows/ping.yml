@@ -11,8 +11,8 @@ jobs:
     strategy:
       matrix:
         url:
-          - ${{ vars.GAMESTASH_HEALTH_POINT }}
-          - ${{ vars.POCKETNOTES_HEALTH_POINT }}
+          - ${{ secrets.GAMESTASH_HEALTH_POINT }}
+          - ${{ secrets.POCKETNOTES_HEALTH_POINT }}
     steps:
       - name: Ping endpoint
         run: curl -sSf ${{ matrix.url }} > /dev/null
