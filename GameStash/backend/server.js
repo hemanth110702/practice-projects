@@ -5,6 +5,7 @@ const cors = require('cors');
 const gamesRoute = require('./routes/gamesRoute');
 const userRoute = require('./routes/userRoute');
 const myGamesRoute = require('./routes/myGamesRoute');
+const healthCheck = require('./controller/healthCheck');
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use("/api/user", userRoute);
 app.use("/api/games", gamesRoute);
 app.use("/api/my-games", myGamesRoute);
+app.use("/health", healthCheck);
 
 mongoose.connect(process.env.MONGODB_URL).then(() => {
   app.listen(process.env.PORT, () =>
