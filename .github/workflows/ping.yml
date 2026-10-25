@@ -8,11 +8,9 @@ on:
 jobs:
   ping:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        url:
-          - ${{ secrets.GAMESTASH_HEALTH_POINT }}
-          - ${{ secrets.POCKETNOTES_HEALTH_POINT }}
     steps:
-      - name: Ping endpoint
-        run: curl -sSf ${{ matrix.url }} > /dev/null
+      - name: Ping GameStash
+        run: curl -sSf ${{ secrets.GAMESTASH_HEALTH_POINT }} > /dev/null
+        
+      - name: Ping PocketNotes
+        run: curl -sSf ${{ secrets.POCKETNOTES_HEALTH_POINT }} > /dev/null
