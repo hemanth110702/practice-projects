@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const noteRoute = require("./Routes/noteRoute");
 const userRoute = require("./Routes/userRoute");
 const cors = require("cors");
+const healthCheck = require("./controller/healthCheck");
 const app = express();
 
 /* const allowedOrigins = [
@@ -24,6 +25,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/user", userRoute);
 app.use("/api/notes", noteRoute);
+app.use("/health", healthCheck);
 
 mongoose
   .connect(process.env.MONGODB_URL)
